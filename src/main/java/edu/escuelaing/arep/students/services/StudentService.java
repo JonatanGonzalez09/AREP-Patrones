@@ -8,5 +8,5 @@ import edu.escuelaing.arep.students.model.Student;
 
 @Service
 public interface StudentService{
-    public List<Student> encontrarTodos() throws StudentException ;  
+    public List<Student> getAllStudents() throws StudentException ;  
 }

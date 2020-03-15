@@ -2,18 +2,20 @@ package edu.escuelaing.arep.students.model;
 
 public class Student{
 
+    private int carnet;
     private String nombre;
-    private int codigo;
     private String carrera;
+    private int semestre;
 
-    public Student(String nombre, int codigo, String carrera){
+    public Student(int carnet, String nombre, String carrera, int semestre){
         this.nombre = nombre;
-        this.codigo = codigo;
+        this.carnet = carnet;
         this.carrera = carrera;
+        this.semestre = semestre;
     }
 
-    public int getCodigo(){
-        return codigo;
+    public int getCarnet(){
+        return carnet;
     }
 
     public String getNombre(){
@@ -22,5 +24,9 @@ public class Student{
 
     public String getCarrera(){
         return carrera;
+    }
+
+    public int getSemestre(){
+        return semestre;
     }
 }

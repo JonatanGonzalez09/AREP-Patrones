@@ -17,9 +17,9 @@ public class Controller {
 	StudentService studentService;
 	
 	@GetMapping()
-	public ResponseEntity<?> todosLosEstudiantes(){
+	public ResponseEntity<?> allStudents(){
 	    try {
-	        return new ResponseEntity<>(studentService.encontrarTodos(),HttpStatus.ACCEPTED);
+	        return new ResponseEntity<>(studentService.getAllStudents(),HttpStatus.ACCEPTED);
 	    } catch (Exception ex) {
 	        return new ResponseEntity<>("Hubo un fallo",HttpStatus.NOT_FOUND);
 	    }

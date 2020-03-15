@@ -20,7 +20,7 @@ public class StudentServiceStub implements StudentService{
 	@Autowired
 	private DataSource dataSource;
 
-    public List<Student> encontrarTodos() throws StudentException {
+    public List<Student> getAllStudents() throws StudentException {
        String query = "SELECT * FROM estudiantes;";
 		List<Student> estudiantes = new ArrayList<Student>();
 		Connection connection = null;
@@ -29,10 +29,11 @@ public class StudentServiceStub implements StudentService{
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
+				int carnet = Integer.parseInt(rs.getString("carnet"));
 				String nombre = rs.getString("nombre");
-                int codigo = Integer.parseInt(rs.getString("codigo"));
-                String carrera = rs.getString("carrera");
-				Student estudiante = new Student(nombre,codigo,carrera);							
+				String carrera = rs.getString("carrera");
+				int semestre = Integer.parseInt(rs.getString("semestre"));
+				Student estudiante = new Student(carnet,nombre,carrera,semestre);
 				estudiantes.add(estudiante);
 			}
 			connection.close();
